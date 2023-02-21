@@ -93,3 +93,6 @@ if __name__ == '__main__':
     detokenized = tokenizer.trivial_detokenize(tokens)
     print("Detokenized: ", detokenized)
     print("Is the Decoded string same as the Encoded string: ", hindi_string == detokenized)
+
+    with open("hindi.txt", "w") as f: 
+        f.write(detokenized)

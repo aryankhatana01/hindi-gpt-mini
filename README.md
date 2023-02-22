@@ -1,2 +1,2 @@
 # hindi-gpt-mini
-An attempt to generate Hindi text using the GPT architecture.
+This a very small-scale GPT model trained in a very small dataset of Hindi Poems and generates new Poems.

@@ -3,12 +3,12 @@ Tokenizer for the Hindi Language in the Devnagri script.
 Reference: https://github.com/anoopkunchukuttan/indic_nlp_library
 """
 import string, re
+import json
 
 class HindiTokenizer:
     def __init__(self):
         ### tokenizer patterns 
         self.triv_tokenizer_indic_pat = re.compile(r'(['+string.punctuation+r'\u0964\u0965'+r'])')
-        self.triv_tokenizer_urdu_pat = re.compile(r'(['+string.punctuation+r'\u0609\u060A\u060C\u061E\u066A\u066B\u066C\u066D\u06D4'+r'])')
 
         ## detokenizer patterns 
         left_attach = r'!%)\]},.:;>?\u0964\u0965'

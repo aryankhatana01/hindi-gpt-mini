@@ -3,7 +3,7 @@ from model import GPTLanguageModel
 from config import CFG
 from tokenizer import HindiTokenizer
 
-load_model = False # set to True to load a pretrained model
+load_model = True # set to True to load a pretrained model
 output_filename='hindi.txt'
 
 ######## Intialize the model and tokenizer ########
@@ -12,7 +12,8 @@ tokenizer = HindiTokenizer()
 ##################################################
 
 if load_model:
-    model.load_state_dict(torch.load('model.pt'))
+    model.load_state_dict(torch.load('./model.pth', map_location=torch.device('cpu')))
+    print("Model loaded!")
 
 def save_generated_text(generated_text, filename='hindi.txt'):
     with open(filename, 'w') as f:

@@ -47,6 +47,7 @@ model = GPTLanguageModel(vocab_size=CFG.vocab_size)
 m = model.to(CFG.device)
 # print the number of parameters in the model
 print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
+print("DEVICE:", CFG.device)
 
 optimizer = torch.optim.AdamW(model.parameters(), lr=CFG.learning_rate)
 
@@ -60,7 +61,10 @@ for iter in range(CFG.max_iters):
     xb, yb = get_batch('train')
 
     # evaluate the loss
-    logits, loss = model(xb, yb)
+    logits, loss = m(xb, yb)
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+
+    # Saving the model after each epoch
+    torch.save(m.state_dict(), './model.pt')

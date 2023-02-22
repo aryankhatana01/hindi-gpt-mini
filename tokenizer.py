@@ -1,6 +1,7 @@
 """
 Tokenizer for the Hindi Language in the Devnagri script.
 Reference: https://github.com/anoopkunchukuttan/indic_nlp_library
+[I had to fix some bugs in the original code and remove redundant parts]
 """
 import string, re
 import json

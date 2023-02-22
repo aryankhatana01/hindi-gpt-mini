@@ -93,23 +93,25 @@ class HindiTokenizer:
 
 
 if __name__ == "__main__": 
-    hindi_string = "बस्ती-बस्ती दहशत किसने बो दी है"
+    hindi_string = "बस्ती-बस्ती दहशत किसने बो दी है"  # Getting a string from the dataset
     print("Base String: ", hindi_string)
 
-    tokenizer = HindiTokenizer()
+    tokenizer = HindiTokenizer()  # Creating an instance of the tokenizer
 
-    tokens = tokenizer.trivial_tokenize(hindi_string)
+    tokens = tokenizer.trivial_tokenize(hindi_string)  # Tokenizing the string
     print("Tokens: ", tokens)
 
-    detokenized = tokenizer.trivial_detokenize(tokens)
+    detokenized = tokenizer.trivial_detokenize(tokens)  # Detokenizing the tokens
     print("Detokenized: ", detokenized)
-    print("Is the Decoded string same as the Encoded string: ", hindi_string == detokenized)
+    print("Is the Decoded string same as the Encoded string: ", hindi_string == detokenized)  # Checking if the decoded string is same as the encoded string
 
-    with open("hindi.txt", "w") as f: 
+    with open("hindi.txt", "w") as f:  # Writing the detokenized string to a file
         f.write(detokenized)
 
-    enc_tokens = tokenizer.tok2ix(tokens)
+    enc_tokens = tokenizer.tok2ix(tokens)  # Encoding the tokens to indices
     print("Encoded Tokens: ", enc_tokens)
 
-    dec_tokens = tokenizer.ix2tok(enc_tokens)
+    dec_tokens = tokenizer.ix2tok(enc_tokens)  # Decoding the indices to back to tokens
     print("Decoded Tokens: ", dec_tokens)
+
+    print("Are the tokens same after encoding and decoding: ", tokens == dec_tokens)  # Checking if the tokens are same after encoding and decoding

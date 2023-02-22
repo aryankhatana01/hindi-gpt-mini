@@ -79,10 +79,20 @@ class HindiTokenizer:
 
         return s
 
+    def tok2ix(self, tokens: list): 
+        with open("input/tok2ix.json") as f: 
+            tok2ix_dict = json.load(f)
+        return [tok2ix_dict[tok] for tok in tokens]
+
+    def ix2tok(self, tokens: list): 
+        with open("input/ix2tok.json") as f: 
+            ix2tok_dict = json.load(f)
+        return [ix2tok_dict[str(tok)] for tok in tokens]
+
 
 
 if __name__ == '__main__': 
-    hindi_string = "हिंदी टोकनाइजर का उपयोग हिंदी भाषा के टेक्स्ट को टोकन बनाने के लिए किया जाता है।"
+    hindi_string = "बस्ती-बस्ती दहशत किसने बो दी है"
     print("Base String: ", hindi_string)
 
     tokenizer = HindiTokenizer()
@@ -96,3 +106,9 @@ if __name__ == '__main__':
 
     with open("hindi.txt", "w") as f: 
         f.write(detokenized)
+
+    enc_tokens = tokenizer.tok2ix(tokens)
+    print("Encoded Tokens: ", enc_tokens)
+
+    dec_tokens = tokenizer.ix2tok(enc_tokens)
+    print("Decoded Tokens: ", dec_tokens)

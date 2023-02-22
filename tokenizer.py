@@ -91,7 +91,7 @@ class HindiTokenizer:
 
 
 
-if __name__ == '__main__': 
+if __name__ == "__main__": 
     hindi_string = "बस्ती-बस्ती दहशत किसने बो दी है"
     print("Base String: ", hindi_string)
 

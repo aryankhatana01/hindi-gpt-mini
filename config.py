@@ -1,4 +1,8 @@
 import torch
+import json
+
+with open("input/ix2tok.json") as f: 
+    vocab = json.load(f)
 
 class CFG:
     batch_size = 16 # how many independent sequences will we process in parallel?
@@ -12,3 +16,4 @@ class CFG:
     n_head = 2
     n_layer = 2
     dropout = 0.2
+    vocab_size = len(vocab)

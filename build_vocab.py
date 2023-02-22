@@ -10,12 +10,16 @@ data = tokenizer.trivial_tokenize(data)
 distinct_tokens = list(set(data))
 
 tok2ix = {
-    token: idx for idx, token in enumerate(distinct_tokens)
+    token: idx+1 for idx, token in enumerate(distinct_tokens)
 }  # token to index
 
+tok2ix['\n'] = 0  # add a token for newline
+
 ix2tok = {
-    idx: token  for idx, token in enumerate(distinct_tokens)
+    idx+1: token  for idx, token in enumerate(distinct_tokens)
 }  # index to token
+
+ix2tok[0] = '\n'  # add a token for newline
 
 with open('input/tok2ix.json', 'w') as f:  # save the token to index mapping
     json.dump(tok2ix, f)

@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from config import CFG
 from torch.nn import functional as F
+from tqdm import tqdm
 
 class Head(nn.Module):
     """ one head of self-attention """
@@ -122,7 +123,7 @@ class GPTLanguageModel(nn.Module):
 
     def generate(self, idx, max_new_tokens):
         # idx is (B, T) array of indices in the current context
-        for _ in range(max_new_tokens):
+        for _ in tqdm(range(max_new_tokens)):
             # crop idx to the last block_size tokens
             idx_cond = idx[:, -CFG.block_size:]
             # get the predictions

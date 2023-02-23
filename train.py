@@ -67,4 +67,4 @@ for iter in range(CFG.max_iters):
     optimizer.step()
 
     # Saving the model after each epoch
-    torch.save(m.state_dict(), './model.pt')
+    torch.save(m.state_dict(), './model.pth')

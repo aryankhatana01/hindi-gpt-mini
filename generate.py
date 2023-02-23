@@ -12,7 +12,7 @@ tokenizer = HindiTokenizer()
 ##################################################
 
 if load_model:
-    model.load_state_dict(torch.load('./model.pth', map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load('./model.pth', map_location=torch.device(CFG.device)))
     print("Model loaded!")
 
 def save_generated_text(generated_text, filename='hindi.txt'):

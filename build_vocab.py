@@ -1,7 +1,7 @@
 import json
 from tokenizer import HindiTokenizer
 
-with open('input/combined.txt') as f:
+with open('input/combined_data.txt') as f:
     data = f.read()
 
 tokenizer = HindiTokenizer()

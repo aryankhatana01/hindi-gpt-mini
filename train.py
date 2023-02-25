@@ -5,7 +5,7 @@ from tokenizer import HindiTokenizer
 from config import CFG
 from model import GPTLanguageModel
 
-with open('input/combined.txt', 'r') as f:
+with open('input/combined_data.txt', 'r') as f:
     data = f.read()
 
 tokenizer = HindiTokenizer()

@@ -17,3 +17,4 @@ with open(output_file_name, "wb") as output_file:
         else:
             with open(input_file, "rb") as file:
                 shutil.copyfileobj(file, output_file)
+    print("Files combined successfully!")
